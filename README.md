@@ -1,9 +1,5 @@
 
-https://github.com/Fastumkj/EventManagement/assets/95695039/1b5c796b-e95e-452e-85f5-af9f1d5862df
 # EventX - Online Event Management System (small scale)
-
-
-https://github.com/Fastumkj/EventManagement/assets/95695039/decf98af-9f1e-4a95-a286-9be123245596
 
 ## Learning Objectives
 - Perform backend development using Java EE technologies.
