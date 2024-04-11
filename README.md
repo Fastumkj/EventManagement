@@ -1,17 +1,20 @@
 
 # EventX - Online Event Management System (small scale)
 
+
+https://github.com/Fastumkj/EventManagement/assets/95695039/3c72b2e0-5056-42ec-8f72-37e8df86a43d
+
+
 ## Learning Objectives
 - Perform backend development using Java EE technologies.
 - Use JSF and PrimeFaces to create rich front-end presentations.
 
 ## System Description
-The EventX system is an online event management platform similar to Eventbrite. It aims to facilitate event organizers in managing events. This assignment is worth 15% of the course grade and assesses the ability to perform both backend and frontend development using Java EE technologies.
+The EventX system is an online event management platform similar to Eventbrite. It aims to facilitate event organizers in managing events. 
 
 ### General Requirements
-- Individual assignment. No collaboration allowed.
+- Individual work. No collaborators.
 - Developed using Java EE and PrimeFaces in the NetBeans environment.
-- Media files used should not infringe copyright.
 
 ### Function Requirements
 The system should support the following functions:
