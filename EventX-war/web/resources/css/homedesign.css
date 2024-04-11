@@ -1,0 +1,169 @@
+/* Updated CSS with Eventbrite Style */
+body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Roboto', sans-serif;
+    color: #DDD;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #111; /* Deep space black */
+    animation: twinkling 5s infinite;
+}
+
+@keyframes twinkling {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+:root {
+    --space-dark-blue: #0b3d91;
+    --space-light-blue: #7abfff;
+    --star-white: #ffffff;
+    --astronaut-silver: #e0e0e0;
+}
+
+#top {
+    color: var(--star-white);
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.input-field {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #222; /* Slightly lighter space black */
+    border: 1px solid var(--astronaut-silver);
+    color: var(--star-white);
+    border-radius: 5px;
+}
+
+.login-button {
+    padding: 4px 10px;
+    background-color: var(--space-light-blue);
+    color: var(--star-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.login-button:hover {
+    background-color: var(--space-dark-blue);
+}
+
+.register-button {
+    padding: 4px 10px;
+    background-color: var(--space-light-blue);
+    color: var(--star-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-left: 10px;
+}
+
+.register-button:hover {
+    background-color: var(--space-dark-blue);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--space-light-blue);
+}
+
+/* Additional Styles for Eventbrite Style */
+.homepage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.explore-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: var(--space-light-blue);
+    color: var(--star-white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+}
+
+.explore-button:hover {
+    background-color: var(--space-dark-blue);
+}
+
+.featured-events {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 8px;
+}
+
+.featured-events h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.testimonials {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 8px;
+}
+
+.testimonials h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.social-media {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 8px;
+}
+
+.social-media h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 24px;
+    margin: 0 10px;
+    color: var(--space-light-blue);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 8px;
+}

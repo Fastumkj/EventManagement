@@ -1,0 +1,109 @@
+:root {
+    /* Existing Variables */
+    --background-gradient-start: #0f2027;
+    --background-gradient-end: #2c5364;
+    --button-bg-color: #334d5b;
+    --button-hover-bg-color: #4f6a78;
+    --font-family: 'Roboto', sans-serif;
+    --text-color: #DDD;
+    --button-radius: 25px;
+    --highlight-color: #7abfff; /* Highlight color for special text */
+    --grand-text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Text shadow for grand appearance */
+    --grand-font-size: 1.5em; /* Larger font size for grand text */
+}
+
+.greeting-message {
+    font-size: var(--grand-font-size);
+    color: var(--highlight-color);
+    text-shadow: var(--grand-text-shadow);
+    text-align: center;
+    margin: 20px 0; /* Adjust spacing around the greeting message */
+    font-weight: bold; /* Make the text bold */
+}
+
+.attendee-view {
+    display: block; /* Ensure it's on a new line */
+    font-size: 1.2em; /* Slightly smaller than the greeting message but still prominent */
+    color: var(--highlight-color);
+    text-shadow: var(--grand-text-shadow);
+}
+
+body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Roboto', sans-serif;
+    color: #DDD;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.space-theme-button, .create-event-button {
+    background-color: #334d5b;
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.space-theme-button:hover, .create-event-button:hover {
+    background-color: #4f6a78;
+}
+
+.events-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.event-card {
+    background-color: #334d5b;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF;
+}
+
+.event-header, .event-body, .event-footer {
+    margin-bottom: 15px;
+}
+
+.create-event {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.special-button {
+    background-color: #5cb85c; /* Green */
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 15px 30px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.special-button:hover {
+    background-color: #4cae4c; /* Darker green */
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .events-display {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .event-card {
+        width: 100%;
+    }
+
+    .create-event-button, .space-theme-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

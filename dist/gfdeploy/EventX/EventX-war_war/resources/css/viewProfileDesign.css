@@ -1,0 +1,80 @@
+body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Roboto', sans-serif;
+    color: #DDD;
+}
+
+/* Center align top content */
+.top-content {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Responsive styling for form */
+.space-form {
+    background-color: #0000; /* Deep space black */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    max-width: 400px; /* Set maximum width */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Assuming that your userprofile.css has similar structure */
+.profile-panel {
+    background-color: #0000; /* Change this to match space-form color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.profile-label {
+    color: #7abfff; /* Change this to match space-label color */
+}
+
+.profile-value {
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.profile-button {
+    padding: 5px 10px; /* Reduced padding to make the button shorter */
+    background-color: #7abfff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: auto; /* Adjusted width */
+    margin: 5px; /* Add margin around buttons */
+    display: inline-block; /* Make buttons line up in a row */
+}
+
+.profile-image {
+    max-width: 200px;
+    max-height: 200px;
+    position: absolute;
+    margin-left: 30rem;
+    margin-top: -17rem;
+    border-radius: 10px;
+}
+
+.profile-button:hover {
+    background-color: #0b3d91;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .space-form {
+        padding: 10px;
+        max-width: 300px;
+    }
+
+    .space-button {
+        padding: 8px 16px;
+    }
+}
+
+/* Add any other styles from createpersondesign.css that you want to match in userprofile.css */

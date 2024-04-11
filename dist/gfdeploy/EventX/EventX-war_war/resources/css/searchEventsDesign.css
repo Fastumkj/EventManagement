@@ -1,0 +1,98 @@
+:root {
+    /* Existing Variables */
+    --background-gradient-start: #0f2027;
+    --background-gradient-end: #2c5364;
+    --button-bg-color: #334d5b;
+    --button-hover-bg-color: #4f6a78;
+    --font-family: 'Roboto', sans-serif;
+    --text-color: #DDD;
+    --button-radius: 25px;
+    --highlight-color: #7abfff; /* Highlight color for special text */
+    --grand-text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Text shadow for grand appearance */
+    --grand-font-size: 1.5em; /* Larger font size for grand text */
+}
+
+.greeting-message {
+    font-size: var(--grand-font-size);
+    color: var(--highlight-color);
+    text-shadow: var(--grand-text-shadow);
+    text-align: center;
+    margin: 20px 0; /* Adjust spacing around the greeting message */
+    font-weight: bold; /* Make the text bold */
+}
+
+.attendee-view {
+    display: block; /* Ensure it's on a new line */
+    font-size: 1.2em; /* Slightly smaller than the greeting message but still prominent */
+    color: var(--highlight-color);
+    text-shadow: var(--grand-text-shadow);
+}
+
+body {
+    background: linear-gradient(to right, var(--background-gradient-start), var(--background-gradient-end));
+    font-family: var(--font-family);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.space-theme-button {
+    background-color: var(--button-bg-color);
+    border: none;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.space-theme-button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.event-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+}
+
+.event-title, .event-date, .event-location, .event-description, .event-deadline {
+    margin-bottom: 10px;
+}
+
+.button-group {
+    text-align: right;
+}
+
+.register-button, .deregister-button {
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+/* Make deregister-button visually smaller */
+.deregister-button {
+    padding: 5px 10px; /* Reduced padding */
+    font-size: 0.85em; /* Smaller font size */
+}
+
+.registered-status {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}

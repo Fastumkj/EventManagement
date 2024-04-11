@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Roboto', sans-serif;
+    color: #DDD;
+}
+
+/* Center align top content */
+.top-content {
+    text-align: center;
+    margin-top: 20px; /* Adjust as needed */
+}
+
+/* Responsive styling for form */
+.space-form {
+    background-color: #0000; /* Deep space black */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    max-width: 400px; /* Set maximum width */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+.space-label {
+    color: #7abfff; /* Space blue */
+}
+
+.space-input {
+    border-radius: 5px;
+    width: 100%; /* Full width input */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.space-button {
+    padding: 10px 20px;
+    background-color: #7abfff; /* Space blue */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 100%; /* Full width button */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+/* Responsive hover effect */
+.space-button:hover {
+    background-color: #0b3d91; /* Darker space blue */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .space-form {
+        padding: 10px;
+        max-width: 300px;
+    }
+
+    .space-button {
+        padding: 8px 16px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .space-form {
+        padding: 5px;
+        max-width: 100%;
+    }
+    .space-button {
+        width: auto;
+    }
+    .p-panelGrid > .p-grid-row > .p-grid-column {
+        padding: 4px !important;
+    }
+}

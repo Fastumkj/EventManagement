@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template=".././layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:define name="title">
+        View Profile
+    </ui:define>
+    
+    <ui:define name="head">
+        <title>User Profile</title>
+    </ui:define>
+    
+    <ui:define name="top">
+        <div class="top-content">
+            <h2>Profile</h2>
+            <p>If you want to edit your Name/Email, please Email us @ xxx</p>
+        </div>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="space-form">
+        <h:form>
+            <h:outputStylesheet library="css" name="viewProfileDesign.css" />
+            <p:panelGrid columns="2" styleClass="profile-panel">
+                <f:event type="preRenderView" listener="#{userManagedBean.loadSelectedCustomer}" />
+                <h:outputLabel for="name" value="Name:" styleClass="profile-label"/>
+                <h:outputText id="name" value="#{userManagedBean.name}" styleClass="profile-value"/>
+
+                <h:outputLabel for="email" value="Email:" styleClass="profile-label"/>
+                <h:outputText id="email" value="#{userManagedBean.email}" styleClass="profile-value"/>
+
+                <h:outputLabel for="gender" value="Gender:" styleClass="profile-label"/>
+                <h:outputText id="gender" value="#{userManagedBean.gender eq 'M' ? 'Male' : 'Female'}" styleClass="profile-value"/>
+
+                <h:outputLabel for="dob" value="Date of Birth:" styleClass="profile-label"/>
+                <h:outputText id="dob" value="#{userManagedBean.dob}" styleClass="profile-value"/>
+
+                <h:outputLabel for="number" value="Number:" styleClass="profile-label"/>
+                <h:outputText id="number" value="#{userManagedBean.contactDetails}" styleClass="profile-value"/>
+            </p:panelGrid>
+            <p:commandButton value="Edit Profile" action="editProfile.xhtml?faces-redirect=true" styleClass="profile-button"/>
+            <p:commandButton value="Back" onclick="history.back();" styleClass="profile-button"/>
+            <p:commandButton value="Logout" action="#{userManagedBean.logout}" styleClass="profile-button"/>
+        </h:form>
+
+        <!-- Profile Image -->
+        <h:form enctype="multipart/form-data">
+            <p:fileUpload listener="#{userManagedBean.handleFileUpload}" mode="advanced" auto="true" dragDropSupport="true" update="profileImageDisplay"/>
+            <p:graphicImage id="profileImageDisplay" value="#{userManagedBean.profileImage}" cache="false" styleClass="profile-image"/>
+            <p:commandButton value="Remove Image" action="#{userManagedBean.removeProfileImage}" update="profileImageDisplay"/>
+        </h:form>
+        </div>
+    </ui:define>
+</ui:composition>

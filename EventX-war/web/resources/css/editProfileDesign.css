@@ -1,0 +1,58 @@
+body {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    font-family: 'Roboto', sans-serif;
+    color: #DDD;
+}
+
+.space-form {
+    background-color: #022033; /* Deep space black */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    max-width: 600px; /* Set maximum width for form */
+    margin: 20px auto; /* Center the form horizontally and give some margin on the top and bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1em; /* Space between each form group */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    color: #7abfff;
+    font-weight: bold;
+    margin-bottom: 0.5em; /* Space between label and input */
+}
+
+.form-input {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 1px solid #555;
+}
+
+.form-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+}
+
+.form-button {
+    padding: 10px 20px;
+    background-color: #7abfff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px; /* Provide some margin between buttons */
+    border-radius: 5px;
+}
+
+.form-button:hover {
+    background-color: #0b3d91;
+}
+
+/* Adjustments for smaller screens can be added if necessary */
+@media (max-width: 768px) {
+    /* Responsive styles */
+}

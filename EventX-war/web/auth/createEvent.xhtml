@@ -1,0 +1,104 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template=".././layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="title">Create Event</ui:define>
+    
+    <ui:define name="top">
+        <h:form>
+            <h:outputStylesheet library="css" name="createEventsDesign.css"/>
+            <p:commandButton icon="fa fa-sign-out" value="Logout" action="#{userManagedBean.logout}" rendered="#{not empty userManagedBean.loggedInPerson}" styleClass="space-theme-button button-margin-right"/>
+            <p:button icon="fa fa-user" value="View Profile" outcome="viewProfile" styleClass="space-theme-button button-margin-right" rendered="#{not empty userManagedBean.loggedInPerson}"/>
+            <p:button icon="fa fa-arrow-left" value="Back" outcome="/searchEvents.xhtml" styleClass="space-theme-button button-margin-right" rendered="#{userManagedBean.loggedInPerson != null}"/>
+            <div style="text-align: center; width: 100%;">
+                <h:outputText value="Hi #{userManagedBean.loggedInPerson.name}!" styleClass="greeting-message"/>
+                <h:outputText value="Organiser View" styleClass="attendee-view"/>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <p:growl id='growl' life="3000"/>
+        <h:form id="eventManagementForm">
+            <div class="events-display">
+                <ui:repeat value="#{eventManagedBean.myEvents}" var="event">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <h3>#{event.title}</h3>
+                            <h:outputText value="#{event.eventDate}" styleClass="event-date"/>
+                        </div>
+                        <div class="event-body">
+                            <p>Organizer: #{event.creatorName}</p>
+                            <p>Location: #{event.location}</p>
+                            <p>Description: #{event.description}</p>
+                            <p>Registration Deadline: #{event.registrationDeadline}</p>
+                        </div>
+                        <div class="event-footer">
+                            <p:commandButton icon="fa fa-eye" value="View Attendees" 
+                                             actionListener="#{eventManagedBean.showRegisteredAttendees(event.id)}" 
+                                             update=":registeredAttendeesDialog" 
+                                             oncomplete="PF('registeredAttendeesDialogWidget').show()" 
+                                             styleClass="space-theme-button"/>
+                            <p:commandButton icon="fa fa-trash" value="Delete Event" 
+                                             action="#{eventManagedBean.deleteEvent(event.id)}" 
+                                             update="@form" 
+                                             rendered="#{event.creatorId eq userManagedBean.loggedInPerson.id}" 
+                                             styleClass="space-theme-button"/>
+                        </div>
+                    </div>
+                </ui:repeat>
+            </div>
+            <div class="create-event">
+                <p:commandButton icon="fa fa-plus-circle" value="Create New Event" 
+                                 oncomplete="PF('eventDialogWidget').show()"  
+                                 styleClass="create-event-button special-button"/>
+            </div>
+        </h:form>
+
+        <p:dialog id="eventDialog" widgetVar="eventDialogWidget" header="Create New Event" modal="true" resizable="false">
+            <h:form id="eventCreationFormInsideDialog">
+                <p:panelGrid columns="2" style="width:100%; margin-bottom:10px">
+                    <h:outputLabel for="title" value="Title:" />
+                    <p:inputText id="title" value="#{eventManagedBean.title}" required="true" />
+
+                    <h:outputLabel for="location" value="Location:" />
+                    <p:inputText id="location" value="#{eventManagedBean.location}" required="true"/>
+
+                    <h:outputLabel for="description" value="Description:" />
+                    <p:inputTextarea id="description" value="#{eventManagedBean.description}" rows="4" required="true"/>
+
+                    <h:outputLabel for="eventDate" value="Date:" />
+                    <p:calendar id="eventDate" value="#{eventManagedBean.eventDate}" showOn="button" pattern="dd/MM/yyyy" required="true"/>
+
+                    <h:outputLabel for="registrationDeadline" value="Registration Deadline:" />
+                    <p:calendar id="registrationDeadline" value="#{eventManagedBean.registrationDeadline}" showOn="button" pattern="dd/MM/yyyy" required="true"/>
+                </p:panelGrid>
+                <p:commandButton icon="fa fa-check" value="Create Event" actionListener="#{eventManagedBean.addEvent}" update="@form" oncomplete="PF('eventDialogWidget').hide()" styleClass="space-theme-button"/>
+                <p:commandButton icon="fa fa-times" value="Cancel" type="button" onclick="PF('eventDialogWidget').hide()" styleClass="space-theme-button"/>
+            </h:form>
+        </p:dialog>
+
+        <p:dialog id="registeredAttendeesDialog" widgetVar="registeredAttendeesDialogWidget" header="Registered Attendees" modal="true" resizable="false">
+            <h:form id="registeredAttendeesForm">
+                <p:dataTable var="attendee" value="#{eventManagedBean.registeredAttendees}">
+                    <p:column headerText="Attendee Name">
+                        #{attendee.person.name}
+                    </p:column>
+                    <p:column headerText="Attendance Status">
+                        #{attendee.isApproved ? 'Attended' : 'Missing'}
+                    </p:column>
+                    <p:column headerText="Actions">
+                        <p:commandButton icon="fa fa-check" actionListener="#{eventManagedBean.approveRegistration(attendee.id)}" update=":registeredAttendeesForm"/>
+                        <p:commandButton icon="fa fa-times" actionListener="#{eventManagedBean.disapproveRegistration(attendee.id)}" update=":registeredAttendeesForm"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton value="All Attended" actionListener="#{eventManagedBean.approveAllAttendees}" update=":registeredAttendeesForm" styleClass="ui-button-success"/>
+                <p:commandButton value="All Missing" actionListener="#{eventManagedBean.disapproveAllAttendees}" update=":registeredAttendeesForm" styleClass="ui-button-warning"/>
+            </h:form>
+        </p:dialog>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">
+        Event X
+    </ui:define>
+    
+    
+    <ui:define name="top">
+        <div id="top">
+            <h:outputText value="🚀 Event X All4U" styleClass="title" /> <br></br>
+            <h:form>
+                <!-- Include the CSS file -->
+                <h:outputStylesheet library="css" name="homedesign.css" />
+                <div class="login-form">
+                    <h:outputLabel for="email" value="Email:" />
+                    <h:inputText id="email" value="#{userManagedBean.email}" required="true" styleClass="input-field" />
+                    <h:message for="email" />
+                    <h:outputLabel for="password" value="Password:"  style="margin-left: 0.5rem"/>
+                    <h:inputSecret id="password" value="#{userManagedBean.password}" required="true" styleClass="input-field" />
+                    <h:message for="password" />
+                    <p:commandButton value="Login" action="#{userManagedBean.login}" update="loginMessages" styleClass="login-button" style="margin-left: 0.5rem" />
+                    <p:button outcome="createPerson.xhtml" value="Register" styleClass="register-button" />
+                    <!--<ui:include src="/component/logout.xhtml"/>-->
+                    <!--<p:commandButton value="Logout" action="#{userManagedBean.logout()}" />-->
+                </div>
+                <h:messages id="loginMessages" globalOnly="true" style="color:red; z-index: 10;" />
+            </h:form>
+        </div>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="homepage-container">
+            <div class="hero-section">
+                <h1>Your Event Adventure Awaits</h1>
+                <p>Join us for unforgettable events and experiences that are out of this world!</p>
+                <p:button outcome="searchEvents.xhtml" value="Explore Now" styleClass="explore-button" />
+            </div>
+            <div class="featured-events">
+                <h2>Featured Events</h2>
+                <p>Coming Soon...</p>
+            </div>
+            <div class="testimonials">
+                <h2>What Our Members Say</h2>
+                <p>Testimonials here...</p>
+            </div>
+            <div class="social-media">
+                <h2>Connect With Us</h2>
+                <p>Follow us on social media for updates and more!</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer">
+                <p>© 2024 Kah Jyun's Event. All rights reserved.</p>
+            </div>
+        </div>
+        
+        
+    </ui:define>
+
+</ui:composition>

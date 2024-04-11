@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template=".././layout/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:define name="title">
+        Edit Profile
+    </ui:define>
+    
+    <ui:define name="top">
+        <div class="top-content">
+            <h2 style="text-align: center">Edit Profile</h2>
+        </div>
+    </ui:define>
+    
+<ui:define name="content">
+    <div class="space-form">
+        <h:form>
+            <h:outputStylesheet library="css" name="editProfileDesign.css" />
+            
+            <div class="form-group">
+                <h:outputLabel for="dob" value="Date of Birth: " styleClass="form-label"/>
+                <p:calendar id="dob" value="#{userManagedBean.dob}" required="true" pattern="dd/MM/yyyy" navigator="true" showOn="button" styleClass="form-input"/>
+            </div>
+            
+            <div class="form-group">
+                <h:outputLabel for="contactDetails" value="Number:" styleClass="form-label"/>
+                <h:inputText id="contactDetails" value="#{userManagedBean.contactDetails}" required="true" styleClass="form-input"/>
+            </div>
+
+            <!-- Add more fields as needed -->
+            
+            <div class="form-buttons">
+                <p:commandButton value="Save Changes" action="#{userManagedBean.updateProfile}" styleClass="form-button"/>
+                <p:commandButton value="Back" onclick="history.back();" styleClass="form-button"/>
+            </div>
+        </h:form>
+    </div>
+</ui:define>
+    
+</ui:composition>
